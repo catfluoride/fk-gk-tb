@@ -4,7 +4,7 @@ Experimental Thunderbird add-on to override the outgoing email and HTTP/HTTPS `U
 
 ## Installation
 
-Download `fk-gk-tb-v1.1.0.xpi` from [Releases](https://github.com/catfluoride/fk-gk-tb-/releases). In Thunderbird open **Add-ons and Themes → gear → Install Add-on From File**, then choose the XPI.
+Download `fk-gk-tb-v1.1.0.xpi` from [Releases](https://github.com/catfluoride/fk-gk-tb/releases). In Thunderbird open **Add-ons and Themes → gear → Install Add-on From File**, then choose the XPI.
 
 ## Usage
 
@@ -26,6 +26,12 @@ The email override sets `mailnews.headers.useMinimalUserAgent=false` and `genera
 ```bash
 zip -r fk-gk-tb-v1.1.0.xpi manifest.json background.js popup.html popup.js style.css api
 ```
+
+## Credits and philosophy
+
+This extension was **entirely vibe-coded with ChatGPT (OpenAI, GPT-6)**. ChatGPT generated the extension's code, interface, packaging, and initial documentation, working from the repository owner's requirements and feedback.
+
+It's a small personal experiment, not a polished or independently audited product. If you don't like it, you can simply ignore it. Nobody is asking you to use it.
 
 ## References
 
