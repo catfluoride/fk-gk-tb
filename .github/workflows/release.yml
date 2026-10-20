@@ -1,0 +1,26 @@
+name: Publish XPI release
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check source and build XPI
+        run: |
+          node --check background.js
+          node --check popup.js
+          node --check api/implementation.js
+          zip -r fk-gk-tb-v1.1.0.xpi manifest.json background.js popup.html popup.js style.css api
+          unzip -t fk-gk-tb-v1.1.0.xpi
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v1.1.0 fk-gk-tb-v1.1.0.xpi --title "fk-gk-tb v1.1.0" --notes "Initial experimental release. Configurable Thunderbird email/HTTP User-Agent overrides with optional automatic Chrome Stable updates. Not runtime-tested." --target "${{ github.sha }}"
