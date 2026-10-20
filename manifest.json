@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "fk-gk-tb",
+  "version": "1.1.0",
+  "description": "Change Thunderbird mail and HTTP User-Agent headers and track Chrome Stable releases.",
+  "browser_specific_settings": {"gecko": {"id": "fk-gk-tb@catfluoride.github.io", "strict_min_version": "128.0"}},
+  "permissions": ["storage", "alarms", "webRequest", "webRequestBlocking", "<all_urls>"],
+  "background": {"scripts": ["background.js"]},
+  "browser_action": {"default_title": "fk-gk-tb", "default_popup": "popup.html"},
+  "options_ui": {"page": "popup.html", "open_in_tab": false},
+  "experiment_apis": {"userAgentPrefs": {"schema": "api/schema.json", "parent": {"scopes": ["addon_parent"], "paths": [["userAgentPrefs"]], "script": "api/implementation.js"}}}
+}
